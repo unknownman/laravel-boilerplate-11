@@ -12,8 +12,8 @@
         </div>
 
         <div>
-            <TestComponent title="this is title" >
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum porro voluptate reiciendis quas! Quae, est? Aut pariatur repudiandae error unde minus temporibus, libero nobis ab! Hic aperiam et magni. Modi.</p>
+            <TestComponent title="this is title"  >
+                <ApplicationLogo />
             </TestComponent>
         </div>
     </div>
@@ -22,6 +22,7 @@
 <script setup>
     import {ref} from "vue";
     import TestComponent from '@/Components/TestComponent.vue';
+    import ApplicationLogo from "../Components/ApplicationLogo.vue"
 
     const count = ref(0);
     const color = ref("blue")
