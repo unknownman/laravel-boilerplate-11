@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Hello world</h1>
+        <h1 class=" bg-red-500 text-white">Hello world</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum porro voluptate reiciendis quas! Quae, est? Aut pariatur repudiandae error unde minus temporibus, libero nobis ab! Hic aperiam et magni. Modi.</p>
 
         <p>The Counter is : {{ count }}</p>
