@@ -1,5 +1,7 @@
 <template>
     <div>
+        <div class="bg-blue-200 text-indigo-600 font-bold text-xl">
+        This is a Test</div>
         <h1>Hello world</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum porro voluptate reiciendis quas! Quae, est? Aut pariatur repudiandae error unde minus temporibus, libero nobis ab! Hic aperiam et magni. Modi.</p>
 
@@ -20,7 +22,6 @@
 </template>
 
 <script setup>
-    import {ref} from "vue";
     import TestComponent from '@/Components/TestComponent.vue';
     import ApplicationLogo from "../Components/ApplicationLogo.vue"
 
