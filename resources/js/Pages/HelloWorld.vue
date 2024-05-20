@@ -22,8 +22,6 @@
 </template>
 
 <script setup>
-    import TestComponent from '@/Components/TestComponent.vue';
-    import ApplicationLogo from "../Components/ApplicationLogo.vue"
 
     const count = ref(0);
     const color = ref("blue")
