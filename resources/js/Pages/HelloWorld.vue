@@ -25,7 +25,6 @@
 </template>
 
 <script setup>
-
 defineOptions({ layout: SampleLayout });
 const { count, myMessage, onClickHandle, color } = useTest();
 </script>
