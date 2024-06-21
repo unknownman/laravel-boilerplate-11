@@ -12,6 +12,7 @@ declare module 'vue' {
     DangerButton: typeof import('./resources/js/Components/DangerButton.vue')['default']
     Dropdown: typeof import('./resources/js/Components/Dropdown.vue')['default']
     DropdownLink: typeof import('./resources/js/Components/DropdownLink.vue')['default']
+    Input: typeof import('./resources/js/Components/Input.vue')['default']
     InputError: typeof import('./resources/js/Components/InputError.vue')['default']
     InputLabel: typeof import('./resources/js/Components/InputLabel.vue')['default']
     Modal: typeof import('./resources/js/Components/Modal.vue')['default']
@@ -21,5 +22,9 @@ declare module 'vue' {
     SecondaryButton: typeof import('./resources/js/Components/SecondaryButton.vue')['default']
     TestComponent: typeof import('./resources/js/Components/TestComponent.vue')['default']
     TextInput: typeof import('./resources/js/Components/TextInput.vue')['default']
+    UiAlert: typeof import('./resources/js/Components/Ui/Alert.vue')['default']
+    UiCard: typeof import('./resources/js/Components/Ui/Card.vue')['default']
+    UiInput: typeof import('./resources/js/Components/Ui/Input.vue')['default']
+    UiToggle: typeof import('./resources/js/Components/Ui/Toggle.vue')['default']
   }
 }

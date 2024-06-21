@@ -1,100 +1,58 @@
 <script setup lang="ts">
-import { Head, Link, useForm } from '@inertiajs/vue3';
+import { Head, Link, useForm } from "@inertiajs/vue3";
 defineOptions({
-    layout: GuestLayout
-})
+  layout: GuestLayout,
+});
 const form = useForm({
-    name: '',
-    email: '',
-    password: '',
-    password_confirmation: '',
+  name: "",
+  email: "",
+  password: "",
+  password_confirmation: "",
 });
 
 const submit = () => {
-    form.post(route('register'), {
-        onFinish: () => {
-            form.reset('password', 'password_confirmation');
-        },
-    });
+  form.post(route("register"), {
+    onFinish: () => {
+      form.reset("password", "password_confirmation");
+    },
+  });
 };
 </script>
 
 <template>
-        <Head title="Register" />
 
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="name" value="Name" />
+    <Head title="Register" />
 
-                <TextInput
-                    id="name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    v-model="form.name"
-                    required
-                    autofocus
-                    autocomplete="name"
-                />
+    <ui-card>
+        <form class="space-y-10" action="#" @submit.prevent="submit">
+            <h5 class="text-xl font-medium text-gray-900 dark:text-white">
+                در سامانه ثبت نام کنید
+            </h5>
 
-                <InputError class="mt-2" :message="form.errors.name" />
+            <div class="space-y-6">
+                <ui-input type="text" name="name" id="name" v-model="form.name" :error="form.errors.name"
+                    label="نام شما" placeholder="نام کامل شما" />
+                <ui-input type="email" name="email" id="email" v-model="form.email" :error="form.errors.email"
+                    label="پست الکترونیکی" placeholder="آدرس پست الکترونیکی شما" />
+                <ui-input type="password" name="password" id="password" v-model="form.password"
+                    :error="form.errors.password" label="رمز عبور" placeholder="••••••••" required />
+                <ui-input type="password" name="password_confirmation" id="password_confirmation"
+                    v-model="form.password_confirmation" :error="form.errors.password_confirmation"
+                    label="تکرار رمز عبور" placeholder="••••••••" required />
             </div>
 
-            <div class="mt-4">
-                <InputLabel for="email" value="Email" />
-
-                <TextInput
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autocomplete="username"
-                />
-
-                <InputError class="mt-2" :message="form.errors.email" />
+            <div class="flex items-start">
+                <Link href="/forgot-password" class="ms-auto text-sm text-blue-700 hover:underline dark:text-blue-500">
+                رمز عبور خود را فرآموش کرده اید؟</Link>
             </div>
-
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-
-                <TextInput
-                    id="password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password"
-                    required
-                    autocomplete="new-password"
-                />
-
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
-
-                <TextInput
-                    id="password_confirmation"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password_confirmation"
-                    required
-                    autocomplete="new-password"
-                />
-
-                <InputError class="mt-2" :message="form.errors.password_confirmation" />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link
-                    :href="route('login')"
-                    class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
-                >
-                    پیش از این ثبت نام کرده اید?
-                </Link>
-
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    ثبت نام
-                </PrimaryButton>
+            <button type="submit" :disabled="form.processing"
+                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                ثبت نام حساب کاربری
+            </button>
+            <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+                قبلا ثبت نام کرده اید
+                <Link href="/login" class="text-blue-700 hover:underline dark:text-blue-500">ورود به حساب</Link>
             </div>
         </form>
+    </ui-card>
 </template>

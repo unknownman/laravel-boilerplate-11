@@ -1,59 +1,44 @@
 <script setup lang="ts">
-import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
-import { Head, useForm } from '@inertiajs/vue3';
-
+import { Head, useForm } from "@inertiajs/vue3";
+defineOptions({
+  layout: GuestLayout,
+});
 defineProps<{
-    status?: string;
+  status?: string;
 }>();
 
 const form = useForm({
-    email: '',
+  email: "",
 });
 
 const submit = () => {
-    form.post(route('password.email'));
+  form.post(route("password.email"));
 };
 </script>
 
 <template>
-    <GuestLayout>
-        <Head title="Forgot Password" />
 
+    <Head title="Forgot Password" />
+
+    <ui-card>
         <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-            Forgot your password? No problem. Just let us know your email address and we will email you a password reset
-            link that will allow you to choose a new one.
+            رمز عبور خود را فرآموش کرده اید؟‌نگران نباشید! فقط ایمیل خود را وارد کنید تا لینک
+            بازنشانی رمز عبور برای شما ارسال شود.
         </div>
-
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600 dark:text-green-400">
+        <ui-alert v-if="status" type="success">
             {{ status }}
-        </div>
+        </ui-alert>
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="email" value="Email" />
-
-                <TextInput
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autofocus
-                    autocomplete="username"
-                />
-
-                <InputError class="mt-2" :message="form.errors.email" />
+                <ui-input type="email"  v-model="form.email" :error="form.errors.email"  />
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Email Password Reset Link
+                    رمز یکبار مصرف را برای من ایمیل کن
                 </PrimaryButton>
             </div>
         </form>
-    </GuestLayout>
+    </ui-card>
 </template>
