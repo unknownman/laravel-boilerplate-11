@@ -15,6 +15,7 @@ declare module 'vue' {
     Input: typeof import('./resources/js/Components/Input.vue')['default']
     InputError: typeof import('./resources/js/Components/InputError.vue')['default']
     InputLabel: typeof import('./resources/js/Components/InputLabel.vue')['default']
+    Link: typeof import('./resources/js/Components/Link.vue')['default']
     Modal: typeof import('./resources/js/Components/Modal.vue')['default']
     NavLink: typeof import('./resources/js/Components/NavLink.vue')['default']
     PrimaryButton: typeof import('./resources/js/Components/PrimaryButton.vue')['default']
