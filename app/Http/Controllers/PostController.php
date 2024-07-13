@@ -17,12 +17,7 @@ class PostController extends Controller
 
     public function show($id, $slug = null): Response
     {
-        // compact ('id', 'slug')
-        // =
-        // [
-        //  "id" => $id,
-        //  "slug" => $slug
-        // ]
-        return Inertia::render("Posts/Show", compact("id", "slug"));
+        $post = Post::find($id);
+        return Inertia::render("Posts/Show", compact("id", "slug", "post"));
     }
 }
