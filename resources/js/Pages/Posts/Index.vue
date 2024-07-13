@@ -1,29 +1,16 @@
 <template>
-    <div class="flex h-screen  flex-col place-content-center place-items-center">
-        <h1 class="text-2xl">صفحه لیست پست ها</h1>
-        <p class="text-lg text-slate-400">این صفحه لیست پست ها را نشان می دهد</p>
-        <ul>
-            <li>
-                <Link href="/post/1">
-                صفحه اول
-                </Link>
-            </li>
-            <li>
-                <Link href="/post/2">
-                صفحه دوم
-                </Link>
-            </li>
-            <li>
-                <Link href="/post/3/">
-                صفحه سوم
-                </Link>
-            </li>
-        </ul>
+    <div class="grid grid-cols-1 gap-4">
+        <Link v-for="post in posts" :href="`/post/${post.id}/${post.slug}`">
+            <h1 class="font-bold">{{ post.title }}</h1>
+            <p>{{ post.description }}</p>
+        </Link>
     </div>
 </template>
 
 <script setup>
-
+const props = defineProps({
+    posts:Array
+})
 </script>
 
 <style  scoped>
