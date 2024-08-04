@@ -10,6 +10,10 @@ const props = defineProps({
     id: String,
     page: Object
 })
+defineOptions({
+    layout: DefaultLayout
+})
+
 </script>
 
 <style  scoped>

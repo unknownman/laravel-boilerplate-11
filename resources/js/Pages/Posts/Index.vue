@@ -11,6 +11,10 @@
 const props = defineProps({
     posts:Array
 })
+defineOptions({
+    layout: DefaultLayout
+})
+
 </script>
 
 <style  scoped>

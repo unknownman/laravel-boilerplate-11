@@ -7,11 +7,15 @@
 </template>
 
 <script setup>
+
 const props = defineProps({
   id: String,
   slug: String,
   post: Object,
 });
+defineOptions({
+    layout: DefaultLayout
+})
 </script>
 
 <style scoped></style>
