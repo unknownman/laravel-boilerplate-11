@@ -35,4 +35,5 @@ Route::get("/post/{id}/{slug?}", [PostController::class, "show"]);
 
 // Page Route
 Route::get("/page/{id}", [PageController::class, "show"]);
+Route::get("/profile/{id}", [ProfileController::class, "show"]);
 require __DIR__ . '/auth.php';
