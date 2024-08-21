@@ -13,6 +13,6 @@ class PostService
 
     public function getPostById($id)
     {
-        return Post::find($id);
+        return Post::with("comments")->find($id);
     }
 }

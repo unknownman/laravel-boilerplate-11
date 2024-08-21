@@ -12,6 +12,7 @@ declare module 'vue' {
     DangerButton: typeof import('./resources/js/Components/DangerButton.vue')['default']
     Dropdown: typeof import('./resources/js/Components/Dropdown.vue')['default']
     DropdownLink: typeof import('./resources/js/Components/DropdownLink.vue')['default']
+    FormComment: typeof import('./resources/js/Components/Form/Comment.vue')['default']
     IconNav: typeof import('./resources/js/Components/Icon/Nav.vue')['default']
     Input: typeof import('./resources/js/Components/Input.vue')['default']
     InputError: typeof import('./resources/js/Components/InputError.vue')['default']
@@ -32,6 +33,7 @@ declare module 'vue' {
     TextInput: typeof import('./resources/js/Components/TextInput.vue')['default']
     UiAlert: typeof import('./resources/js/Components/Ui/Alert.vue')['default']
     UiCard: typeof import('./resources/js/Components/Ui/Card.vue')['default']
+    UiCommentList: typeof import('./resources/js/Components/Ui/Comment/List.vue')['default']
     UiInput: typeof import('./resources/js/Components/Ui/Input.vue')['default']
     UiToggle: typeof import('./resources/js/Components/Ui/Toggle.vue')['default']
   }
