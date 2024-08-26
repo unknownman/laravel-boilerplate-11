@@ -4,6 +4,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TagController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -34,6 +35,9 @@ Route::get("/greeting", function () {
 Route::get("/posts", [PostController::class, "index"]);
 Route::get("/post/{id}/{slug?}", [PostController::class, "show"]);
 Route::post("/post/{id}/comment", [CommentController::class, "store"]);
+
+// Tag Route
+Route::get('/tags/{tag}', [TagController::class, "show"]);
 
 // Page Route
 Route::get("/page/{id}", [PageController::class, "show"]);
