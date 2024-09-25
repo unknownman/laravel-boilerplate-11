@@ -7,8 +7,10 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    2: typeof import('./resources/js/Components/Ui/Input copy 2.vue')['default']
     ApplicationLogo: typeof import('./resources/js/Components/ApplicationLogo.vue')['default']
     Checkbox: typeof import('./resources/js/Components/Checkbox.vue')['default']
+    copy: typeof import('./resources/js/Components/Ui/Input copy.vue')['default']
     DangerButton: typeof import('./resources/js/Components/DangerButton.vue')['default']
     Dropdown: typeof import('./resources/js/Components/Dropdown.vue')['default']
     DropdownLink: typeof import('./resources/js/Components/DropdownLink.vue')['default']
@@ -34,7 +36,9 @@ declare module 'vue' {
     UiAlert: typeof import('./resources/js/Components/Ui/Alert.vue')['default']
     UiCard: typeof import('./resources/js/Components/Ui/Card.vue')['default']
     UiCommentList: typeof import('./resources/js/Components/Ui/Comment/List.vue')['default']
+    UiEditor: typeof import('./resources/js/Components/Ui/Editor.vue')['default']
     UiInput: typeof import('./resources/js/Components/Ui/Input.vue')['default']
+    UiTextarea: typeof import('./resources/js/Components/Ui/Textarea.vue')['default']
     UiToggle: typeof import('./resources/js/Components/Ui/Toggle.vue')['default']
   }
 }

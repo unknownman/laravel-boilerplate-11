@@ -41,4 +41,15 @@ Route::get('/tags/{tag}', [TagController::class, "show"]);
 
 // Page Route
 Route::get("/page/{id}", [PageController::class, "show"]);
+
+// Page Admin
+Route::get("/posts/create", [PostController::class, "create"])
+    ->middleware("auth");
+Route::post("/posts", [PostController::class, "store"])
+    ->middleware("auth");
+Route::get("/posts/edit/{post}", [PostController::class, "edit"])
+    ->middleware("auth");
+Route::put("/posts/{post}", [PostController::class, "update"])
+    ->middleware("auth");
+
 require __DIR__ . '/auth.php';
