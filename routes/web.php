@@ -48,8 +48,13 @@ Route::get("/posts/create", [PostController::class, "create"])
 Route::post("/posts", [PostController::class, "store"])
     ->middleware("auth");
 Route::get("/posts/edit/{post}", [PostController::class, "edit"])
-    ->middleware("auth");
+    ->middleware("auth")
+    ->name("posts.edit");
 Route::put("/posts/{post}", [PostController::class, "update"])
     ->middleware("auth");
+
+Route::get("/posts/datagrid", [PostController::class, "datagrid"])
+    ->middleware("auth")
+    ->name("posts.datagrid");
 
 require __DIR__ . '/auth.php';

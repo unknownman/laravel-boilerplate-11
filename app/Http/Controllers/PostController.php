@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Http\Resources\DatagridPostResource;
 use App\Models\Post;
 use Inertia\Inertia;
 use Inertia\Response;
 use App\Services\PostService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -75,5 +77,18 @@ class PostController extends Controller
                 'error' => 'مشکل در ویرایش پست'
             ]);
         }
+    }
+
+    public function datagrid(Request $request)
+    {
+        // $data
+        $posts = Post::with("user")->withCount('postComments');
+        if ($request->filter)
+            $posts = $posts->whereLike('title', '%' . $request->filter . '%');
+
+        $posts = $posts->paginate(10);
+
+        $data = DatagridPostResource::collection($posts);
+        return Inertia::render("Posts/Datagrid", compact("data"));
     }
 }
