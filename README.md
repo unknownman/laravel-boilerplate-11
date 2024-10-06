@@ -1,66 +1,51 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# آموزش جامع فول استک لاراول ۱۱: ساخت CMS با Inertia.js و Vue 3
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+در این مجموعه ویدیویی جامع، گام به گام با لاراول ۱۱، یکی از محبوب‌ترین فریم‌ورک‌های PHP، آشنا خواهید شد و در نهایت یک CMS (سیستم مدیریت محتوا) با استفاده از Inertia.js و Vue 3 ایجاد خواهید کرد.
 
-## About Laravel
+## محتوای این پلی لیست:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **معرفی دوره**: با کلیات دوره، مزایا و پیش‌نیازهای آن آشنا خواهید شد.
+- **نصب لاراول**: نحوه نصب و راه‌اندازی لاراول ۱۱ را به طور کامل یاد خواهید گرفت.
+- **ساخت Boilerplate**: ساخت قالب آماده کارآمد برای پروژه‌های لاراول ۱۱ که مجهز به Inertia.js و Vue 3 است.
+- **کار با دیتابیس**: ساخت یک سیستم مدیریت صفحات و بلاگ با لاراول ۱۱ و تمرین عملی با مفاهیم اصلی دیتابیس.
+- **ساخت CMS**: گام به گام یک CMS شبیه به وردپرس با امکانات کامل در لاراول ۱۱ ساخته خواهد شد.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+این دوره برای توسعه‌دهندگان PHP و علاقه‌مندان به ساخت وب‌اپلیکیشن‌های مدرن و قدرتمند بسیار مناسب است.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## ویدیوهای دوره:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+| شماره | عنوان ویدیو                                                                                                                            | لینک                                                                   |
+| ----- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| ۰     | [معرفی دوره آموزش فول استک لاراول ۱۱ ؛ ساخت CMS با Laravel 11, Inertia.js و Vue 3](https://www.youtube.com/watch?v=utvX4dMAt98)        | ![Thumbnail](https://img.youtube.com/vi_webp/utvX4dMAt98/default.webp) |
+| ۱     | [نصب لاراول ۱۱ ؛ اولین گام برای ساخت CMS قدرتمند با فول استک Laravel, Inertia.js و Vue 3](https://www.youtube.com/watch?v=GVFOBhhdn9A) | ![Thumbnail](https://img.youtube.com/vi_webp/GVFOBhhdn9A/default.webp) |
+| ۲     | [نصب Inertia و Laravel Breeze](https://www.youtube.com/watch?v=uQoKjo-uIfM)                                                            | ![Thumbnail](https://img.youtube.com/vi_webp/uQoKjo-uIfM/default.webp) |
+| ۳     | [مرور Vue 3 و ساخت و مشاهده اولین کامپوننت با Inertia.js در لاراول ۱۱](https://www.youtube.com/watch?v=6F_zqm_Zy-I)                    | ![Thumbnail](https://img.youtube.com/vi_webp/6F_zqm_Zy-I/default.webp) |
+| ۴     | [ارتقا و شخصی‌سازی Vite در لاراول ۱۱؛ افزایش سرعت توسعه با Inertia.js](https://www.youtube.com/watch?v=MBOqbBFcbtY)                     | ![Thumbnail](https://img.youtube.com/vi_webp/MBOqbBFcbtY/default.webp) |
+| ۵     | [معماری لاراول ؛ آشنایی با چرخه درخواست ، کنترلرها و Router در لاراول ۱۱](https://www.youtube.com/watch?v=HO5Exe3Ojww)                 | ![Thumbnail](https://img.youtube.com/vi_webp/HO5Exe3Ojww/default.webp) |
+| ۶     | [شخصی‌سازی صفحات Login و Register در Laravel Breeze با Vue 3 و Flowbite](https://www.youtube.com/watch?v=3vYsf68jikI)                   | ![Thumbnail](https://img.youtube.com/vi_webp/3vYsf68jikI/default.webp) |
+| ۷     | [مدل‌ها در لاراول: ساختار، ORM و Migrations](https://www.youtube.com/watch?v=F0geI6xHg88)                                               | ![Thumbnail](https://img.youtube.com/vi_webp/F0geI6xHg88/default.webp) |
+| ۸     | [کنترلرها در لاراول؛ ساختار، Route‌ها و سازماندهی کد](https://www.youtube.com/watch?v=_c1piCyM8UM)                                      | ![Thumbnail](https://img.youtube.com/vi_webp/_c1piCyM8UM/default.webp) |
+| ۹     | [قدم به قدم به Model ؛ ساخت مدل Post و Page در لاراول ۱۱](https://www.youtube.com/watch?v=Z6v67hqPG9w)                                 | ![Thumbnail](https://img.youtube.com/vi_webp/Z6v67hqPG9w/default.webp) |
+| ۱۰    | [تسلط بر Tinker و کار با مدل‌های Post و Page](https://www.youtube.com/watch?v=CII9b65EPMg)                                              | ![Thumbnail](https://img.youtube.com/vi_webp/CII9b65EPMg/default.webp) |
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## این پلی لیست برای چه کسانی مناسب است؟
 
-## Laravel Sponsors
+- توسعه‌دهندگان PHP که می‌خواهند با لاراول ۱۱ کار کنند.
+- علاقه‌مندان به ساخت وب‌اپلیکیشن‌های مدرن و قدرتمند.
+- کسانی که می‌خواهند از یک فریم‌ورک کامل و جامع برای توسعه وب‌سایت‌های خود استفاده کنند.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## منابع و پروژه‌ها:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+در اینجا می‌توانید به کدها و پروژه‌های مرتبط با دوره دسترسی پیدا کنید و از منابع تکمیلی بهره‌مند شوید:
 
-## Contributing
+- [مخزن GitHub برای پروژه‌های این دوره](https://github.com/unknownman/laravel-boilerplate-11)
+- [کانال یوتیوب من برای دنبال کردن دوره و دیگر آموزش‌ها](https://www.youtube.com/@BW8builtwithbits)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+با مراجعه به مخزن GitHub می‌توانید به کدهای مرتبط با هر بخش از دوره دسترسی پیدا کنید و آنها را به پروژه‌های خود اضافه کنید. همچنین با عضویت در کانال یوتیوب، به روزرسانی‌های جدید و دوره‌های دیگر را نیز دریافت خواهید کرد.
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
