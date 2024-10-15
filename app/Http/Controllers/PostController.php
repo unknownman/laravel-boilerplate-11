@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Resources\DatagridPostResource;
+use App\Jobs\CreateThumbnail;
+use App\Models\Media;
 use App\Models\Post;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -47,6 +49,24 @@ class PostController extends Controller
         $post->description = $request->description;
         $post->content = $request->content;
         $post->user_id = Auth::id();
+
+        if ($request->hasFile("featured_image")) {
+            $file = $request->file("featured_image");
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('uploads/media', $fileName, 'public');
+
+            $media = new Media();
+            $media->file_name = $fileName;
+            $media->file_path = $filePath;
+            $media->mime_type = $file->getClientMimeType();
+            $media->size = $file->getSize();
+            $media->alt_text = $request->title;
+            $media->save();
+
+            CreateThumbnail::dispatch($filePath);
+
+            $post->featured_image_id = $media->id;
+        }
 
         try {
             $post->save();

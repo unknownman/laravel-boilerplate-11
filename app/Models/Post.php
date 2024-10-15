@@ -42,4 +42,9 @@ class Post extends Model
     {
         return $this->morphOne(Meta::class, 'metaable');
     }
+
+    public function featuredImage()
+    {
+        return $this->belongsTo(Media::class, 'featured_image_id');
+    }
 }
