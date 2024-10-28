@@ -25,7 +25,8 @@ const options = reactive({
             title: "ویرایش",
             route: "posts.edit"
         }
-    }
+    },
+    routeKey: "posts"
 })
 </script>
 

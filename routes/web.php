@@ -57,4 +57,21 @@ Route::get("/posts/datagrid", [PostController::class, "datagrid"])
     ->middleware("auth")
     ->name("posts.datagrid");
 
+Route::get("/comments/datagrid", [CommentController::class, "datagrid"])
+    ->middleware("auth")
+    ->name("comments.datagrid");
+Route::post("/comments/status", [CommentController::class, 'status'])
+    ->middleware('auth')
+    ->name('comments.status');
+
+Route::get("/comments/trash/{comment}", [CommentController::class, "trash"])
+    ->middleware("auth")
+    ->name("comments.trash")
+    ->withTrashed();
+
+Route::get("/comments/delete/{comment}", [CommentController::class, "delete"])
+    ->middleware("auth")
+    ->name("comments.delete")
+    ->withTrashed();
+
 require __DIR__ . '/auth.php';

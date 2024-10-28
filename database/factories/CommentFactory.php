@@ -19,6 +19,8 @@ class CommentFactory extends Factory
     {
         return [
             'body' => $this->faker->paragraph,
+            'email' => $this->faker->email,
+            'status' => $this->faker->randomElement(['approved', 'unapproved', null]),
         ];
     }
 }

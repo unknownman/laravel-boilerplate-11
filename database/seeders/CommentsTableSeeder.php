@@ -22,6 +22,8 @@ class CommentsTableSeeder extends Seeder
             Comment::factory()->create([
                 'post_id' => $post->id,
                 'body' => $faker->paragraph,
+                'status' => '',
+                'email' => $faker->email,
             ]);
         });
     }
