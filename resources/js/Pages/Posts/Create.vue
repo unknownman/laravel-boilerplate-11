@@ -10,6 +10,8 @@
             :error="form.errors.description"
             v-model="form.description"
           />
+                  <!-- <ui-tag /> -->
+            <ui-tag class="py-5" label="برچسب ها" :error="form.errors.tags" v-model="form.tags" />
         </div>
         <div>
           <ui-file
@@ -39,6 +41,7 @@ const form = useForm({
   content: "",
   slug: "",
   featured_image: "",
+  tags: []
 });
 
 function submit() {

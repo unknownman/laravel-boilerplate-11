@@ -37,6 +37,19 @@ Route::get("/post/{id}/{slug?}", [PostController::class, "show"]);
 Route::post("/post/{id}/comment", [CommentController::class, "store"]);
 
 // Tag Route
+Route::get("/tags/datagrid", [TagController::class, "datagrid"])
+    ->middleware("auth")
+    ->name("tags.datagrid");
+Route::get("/tags/edit/{tag:id}", [TagController::class, "edit"])
+    ->middleware("auth")
+    ->name("tags.edit");
+Route::put("/tags/{tag:id}", [TagController::class, "update"])
+    ->middleware("auth")
+    ->name("tags.update");
+Route::post("/tags", [TagController::class, "store"])
+    ->middleware(["auth", "api"])
+    ->name("tags.store");
+
 Route::get('/tags/{tag}', [TagController::class, "show"]);
 
 // Page Route
@@ -73,5 +86,7 @@ Route::get("/comments/delete/{comment}", [CommentController::class, "delete"])
     ->middleware("auth")
     ->name("comments.delete")
     ->withTrashed();
+
+
 
 require __DIR__ . '/auth.php';
