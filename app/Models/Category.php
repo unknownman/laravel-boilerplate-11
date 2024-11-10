@@ -16,4 +16,12 @@ class Category extends Model
     public function parent() {
         return $this->belongsTo(Category::class, "parent_id");
     }
+
+    public function posts() {
+        return $this->morphedByMany(Post::class, "categorizable");
+    }
+
+    public function pages() {
+        return $this->morphedByMany(Page::class, "categorizable");
+    }
 }

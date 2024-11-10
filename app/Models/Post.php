@@ -47,4 +47,8 @@ class Post extends Model
     {
         return $this->belongsTo(Media::class, 'featured_image_id');
     }
+
+    public function categories() {
+        return $this->morphToMany(Category::class, "categorizable");
+    }
 }
