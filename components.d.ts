@@ -35,6 +35,8 @@ declare module 'vue' {
     TextInput: typeof import('./resources/js/Components/TextInput.vue')['default']
     UiAlert: typeof import('./resources/js/Components/Ui/Alert.vue')['default']
     UiCard: typeof import('./resources/js/Components/Ui/Card.vue')['default']
+    UiCategory: typeof import('./resources/js/Components/Ui/Category.vue')['default']
+    UiCategoryItem: typeof import('./resources/js/Components/Ui/CategoryItem.vue')['default']
     UiCommentList: typeof import('./resources/js/Components/Ui/Comment/List.vue')['default']
     UiDatagrid: typeof import('./resources/js/Components/Ui/Datagrid.vue')['default']
     UiEditor: typeof import('./resources/js/Components/Ui/Editor.vue')['default']

@@ -19,8 +19,8 @@ const props = defineProps({
   category: Object,
 });
 
-const toggle=useToggle(isOpen)
 const isOpen = ref(false);
+const toggle=useToggle(isOpen)
 </script>
 
 <style scoped></style>
