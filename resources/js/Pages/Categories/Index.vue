@@ -1,10 +1,9 @@
 <template>
-    <div>
-
-    </div>
+    <ui-category :categories="categories" />
 </template>
 
 <script setup>
+
 
 defineOptions({
     layout: AuthenticatedLayout
