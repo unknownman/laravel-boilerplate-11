@@ -92,5 +92,8 @@ Route::get("/comments/delete/{comment}", [CommentController::class, "delete"])
 Route::get("/categories", [CategoryController::class, "index"])
     ->middleware("auth")
     ->name("categories.index");
+Route::post("/categories", [CategoryController::class, "store"])
+    ->middleware("auth")
+    ->name("categories.store");
 
 require __DIR__ . '/auth.php';
