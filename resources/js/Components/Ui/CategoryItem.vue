@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="toggle" v-if="category.children">
+    <button @click="toggle()" v-if="category.children">
       <span v-if="isOpen">-</span>
       <span v-else>+</span>
     </button>
@@ -23,4 +23,8 @@ const isOpen = ref(false);
 const toggle=useToggle(isOpen)
 </script>
 
-<style scoped></style>
+<style scoped>
+button {
+    @apply px-2 rounded-full bg-white me-2
+}
+</style>
