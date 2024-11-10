@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
@@ -88,5 +89,8 @@ Route::get("/comments/delete/{comment}", [CommentController::class, "delete"])
     ->withTrashed();
 
 
+Route::get("/categories", [CategoryController::class, "index"])
+    ->middleware("auth")
+    ->name("categories.index");
 
 require __DIR__ . '/auth.php';
