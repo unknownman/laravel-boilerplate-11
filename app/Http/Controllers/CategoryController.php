@@ -28,10 +28,10 @@ class CategoryController extends Controller
 
         try {
             $category->save();
-            $category->notify(new CategoryCreated());
         } catch(\Exception $e) {
             redirect("/categories")->withErrors("خطا");
         }
+        $category->notify(new CategoryCreated());
         redirect('/categories')->with("success", "با موفقیت اضافه شد");
     }
 }

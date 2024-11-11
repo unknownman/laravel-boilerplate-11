@@ -30,10 +30,12 @@ class CategoryCreated extends Notification
         return ['telegram'];
     }
 
-    public function toTelegram($notifiable) {
+    public function toTelegram($notifiable)
+    {
         return TelegramMessage::create()
-            ->to(env('TELEGRAM_CHAT_ID'))
-            ->content("یک دسته جدید به نام `{$notifable->name} ساخته شد!");
+            ->content("یک دسته جدید به نام `{$notifiable->name}` ساخته شد!")
+            ->parseMode("Markdown")
+            ->to(env('TELEGRAM_CHAT_ID'));
     }
 
     /**
@@ -42,9 +44,9 @@ class CategoryCreated extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->line('The introduction to the notification.')
+            ->action('Notification Action', url('/'))
+            ->line('Thank you for using our application!');
     }
 
     /**
