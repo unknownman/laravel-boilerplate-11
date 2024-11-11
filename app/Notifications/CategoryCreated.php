@@ -6,8 +6,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use NotificationChannels\Telegram\TelegramMessage;
 
-class TelegramCategoryCreated extends Notification
+class CategoryCreated extends Notification
 {
     use Queueable;
 
@@ -26,7 +27,13 @@ class TelegramCategoryCreated extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['telegram'];
+    }
+
+    public function toTelegram($notifiable) {
+        return TelegramMessage::create()
+            ->to(env('TELEGRAM_CHAT_ID'))
+            ->content("یک دسته جدید به نام `{$notifable->name} ساخته شد!");
     }
 
     /**
