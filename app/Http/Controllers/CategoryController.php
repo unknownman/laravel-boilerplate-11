@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Notifications\CategoryCreated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -27,6 +28,7 @@ class CategoryController extends Controller
 
         try {
             $category->save();
+            $category->notify(new CategoryCreated());
         } catch(\Exception $e) {
             redirect("/categories")->withErrors("خطا");
         }
