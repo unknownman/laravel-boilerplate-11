@@ -7,16 +7,13 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    2: typeof import('./resources/js/Components/Ui/Input copy 2.vue')['default']
     ApplicationLogo: typeof import('./resources/js/Components/ApplicationLogo.vue')['default']
     Checkbox: typeof import('./resources/js/Components/Checkbox.vue')['default']
-    copy: typeof import('./resources/js/Components/Ui/Input copy.vue')['default']
     DangerButton: typeof import('./resources/js/Components/DangerButton.vue')['default']
     Dropdown: typeof import('./resources/js/Components/Dropdown.vue')['default']
     DropdownLink: typeof import('./resources/js/Components/DropdownLink.vue')['default']
     FormComment: typeof import('./resources/js/Components/Form/Comment.vue')['default']
     IconNav: typeof import('./resources/js/Components/Icon/Nav.vue')['default']
-    Input: typeof import('./resources/js/Components/Input.vue')['default']
     InputError: typeof import('./resources/js/Components/InputError.vue')['default']
     InputLabel: typeof import('./resources/js/Components/InputLabel.vue')['default']
     LayoutAside: typeof import('./resources/js/Components/Layout/Aside.vue')['default']
