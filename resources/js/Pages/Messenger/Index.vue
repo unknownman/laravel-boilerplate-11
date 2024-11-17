@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ui-messenger-friends :users="users" />
+        <ui-messenger-friends :users="users" @chat="handleChat" />
         <ui-messenger-chat :user="selectedUser" v-if="selectedUser" />
     </div>
 </template>
@@ -13,6 +13,11 @@ const props = defineProps({
 })
 const page = usePage()
 const selectedUser = ref(null)
+
+function handleChat(e) {
+    console.log(e)
+    selectedUser.value = e
+}
 const echo = window.Echo
 echo.channel("chat").listenToAll((e,data) => {
     console.log("new event", e, data);
