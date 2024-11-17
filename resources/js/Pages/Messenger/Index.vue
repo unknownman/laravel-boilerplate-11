@@ -25,5 +25,7 @@ echo.channel("chat").listenToAll((e,data) => {
 </script>
 
 <style  scoped>
-
+div {
+    @apply flex flex-row justify-start gap-1
+}
 </style>

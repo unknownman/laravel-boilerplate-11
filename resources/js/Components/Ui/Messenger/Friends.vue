@@ -17,7 +17,7 @@ function onChatWith(u) {
 
 <style scoped>
 ul {
-    @apply w-1/4 max-w-xs overflow-y-auto overflow-x-hidden bg-slate-200 h-screen
+    @apply w-64 overflow-y-auto overflow-x-hidden bg-slate-200 h-screen
 }
 li {
     @apply h-12 flex flex-col place-content-center place-items-start ps-5  cursor-pointer hover:bg-white hover:shadow-inner
