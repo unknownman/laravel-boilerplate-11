@@ -1,6 +1,7 @@
 <template>
     <div>
-
+        <ui-messenger-friends :users="users" />
+        <ui-messenger-chat :user="selectedUser" v-if="selectedUser" />
     </div>
 </template>
 
@@ -11,6 +12,7 @@ const props = defineProps({
     users: Array
 })
 const page = usePage()
+const selectedUser = ref(null)
 const echo = window.Echo
 echo.channel("chat").listenToAll((e,data) => {
     console.log("new event", e, data);
