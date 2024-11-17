@@ -39,6 +39,7 @@ declare module 'vue' {
     UiEditor: typeof import('./resources/js/Components/Ui/Editor.vue')['default']
     UiFile: typeof import('./resources/js/Components/Ui/File.vue')['default']
     UiInput: typeof import('./resources/js/Components/Ui/Input.vue')['default']
+    UiMessengerChat: typeof import('./resources/js/Components/Ui/Messenger/Chat.vue')['default']
     UiMessengerFriends: typeof import('./resources/js/Components/Ui/Messenger/Friends.vue')['default']
     UiTag: typeof import('./resources/js/Components/Ui/Tag.vue')['default']
     UiTextarea: typeof import('./resources/js/Components/Ui/Textarea.vue')['default']

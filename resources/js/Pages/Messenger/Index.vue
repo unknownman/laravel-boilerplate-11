@@ -15,7 +15,6 @@ const page = usePage()
 const selectedUser = ref(null)
 
 function handleChat(e) {
-    console.log(e)
     selectedUser.value = e
 }
 const echo = window.Echo
