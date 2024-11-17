@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\MessengerController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -96,4 +97,5 @@ Route::post("/categories", [CategoryController::class, "store"])
     ->middleware("auth")
     ->name("categories.store");
 
+Route::get("/messenger", [MessengerController::class, "index"])->middleware("auth")->name("messenger.index");
 require __DIR__ . '/auth.php';
