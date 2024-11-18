@@ -19,7 +19,7 @@
             <small v-if="isTyping">{{ user.name }} در حال نوشتن است ...</small>
         </section>
         <footer>
-            <input class="input" v-model="form.message" />
+            <input class="input" v-model="form.message" @keydown="sendTypingEvent" @keyup.enter="sendMessage" />
             <button @click="sendMessage" >ارسال</button>
         </footer>
 
