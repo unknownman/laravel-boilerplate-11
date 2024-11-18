@@ -32,6 +32,8 @@ import { onMounted } from 'vue';
 const page = usePage()
 const currentUser = page.props.auth.user
 const messages = ref([])
+const isTyping = ref(false)
+const isTypingTimer = ref(0)
 const props = defineProps({
     user: Object
 })
