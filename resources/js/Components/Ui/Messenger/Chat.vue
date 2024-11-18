@@ -16,6 +16,7 @@
 
 <script setup>
 import { useForm, usePage } from '@inertiajs/vue3';
+import axios from 'axios';
 const page = usePage()
 const currentUSer = page.props.auth.user
 const messages = ref([])
@@ -25,6 +26,14 @@ const props = defineProps({
 const form = useForm({
     message: ""
 })
+
+async function getMessages(u) {
+    await axios.get(`/meesenger/${u.id}`).then((response) => {
+        messages.value = response.data();
+    })
+}
+
+await getMessages(props.user)
 </script>
 
 <style  scoped>
