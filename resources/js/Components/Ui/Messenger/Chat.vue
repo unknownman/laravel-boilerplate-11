@@ -15,8 +15,9 @@
 </template>
 
 <script setup>
-import { useForm } from '@inertiajs/vue3';
-
+import { useForm, usePage } from '@inertiajs/vue3';
+const page = usePage()
+const currentUSer = page.props.auth.user
 const props = defineProps({
     user: Object
 })
