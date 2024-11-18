@@ -38,7 +38,7 @@ class MessengerController extends Controller
             "text" => request()->input("message")
         ]);
 
-        broadcast(new ChatMessage($message));
+        event(new ChatMessage($message));
 
         return $message;
     }
