@@ -98,4 +98,5 @@ Route::post("/categories", [CategoryController::class, "store"])
     ->name("categories.store");
 
 Route::get("/messenger", [MessengerController::class, "index"])->middleware("auth")->name("messenger.index");
+Route::get("/messenger/{user}", [MessengerController::class, "conversation"])->middleware(["auth", "api"])->name("messenger.conversation");
 require __DIR__ . '/auth.php';
