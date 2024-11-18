@@ -4,7 +4,18 @@
             {{ user.name }}
         </header>
         <section>
-            chat content
+            <div id="messageContainer">
+                <div v-for="m in messages" id="conversation">
+                    <div v-if="m.from_id == currentUser.id" class="from">
+                        {{ m.text }}
+                    </div>
+
+                    <div v-else class="to">
+                        {{ m.text }}
+                    </div>
+
+                </div>
+            </div>
         </section>
         <footer>
             <input class="input" v-model="form.message" />
@@ -18,7 +29,7 @@
 import { useForm, usePage } from '@inertiajs/vue3';
 import axios from 'axios';
 const page = usePage()
-const currentUSer = page.props.auth.user
+const currentUser = page.props.auth.user
 const messages = ref([])
 const props = defineProps({
     user: Object
@@ -28,8 +39,8 @@ const form = useForm({
 })
 
 async function getMessages(u) {
-    await axios.get(`/meesenger/${u.id}`).then((response) => {
-        messages.value = response.data();
+    await axios.get(`/messenger/${u.id}`).then((response) => {
+        messages.value = response.data;
     })
 }
 
