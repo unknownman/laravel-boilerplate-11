@@ -16,6 +16,7 @@
 
                 </div>
             </div>
+            <small v-if="isTyping">{{ user.name }} در حال نوشتن است ...</small>
         </section>
         <footer>
             <input class="input" v-model="form.message" />
