@@ -28,6 +28,7 @@
 <script setup>
 import { useForm, usePage } from '@inertiajs/vue3';
 import axios from 'axios';
+import { onMounted } from 'vue';
 const page = usePage()
 const currentUser = page.props.auth.user
 const messages = ref([])
@@ -44,8 +45,9 @@ async function getMessages(u) {
     })
 }
 
-await getMessages(props.user)
-
+onMounted(() => {
+    getMessages(props.user)
+})
 watch(() => props.user, (newUser) => {
     if(newUser && newUser.id) {
         getMessages(newUser)
