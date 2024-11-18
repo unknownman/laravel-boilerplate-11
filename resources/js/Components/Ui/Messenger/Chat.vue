@@ -45,6 +45,17 @@ async function getMessages(u) {
     })
 }
 
+function sendMessage() {
+    if(form.message.trim() !== "") {
+        axios.post(`/messenger/${props.user.id}`, {
+            message: form.message
+        }).then((response) => {
+            messages.value.push(response.data)
+            form.reset()
+        })
+    }
+}
+
 onMounted(() => {
     getMessages(props.user)
 })
