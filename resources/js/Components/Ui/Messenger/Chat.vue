@@ -45,6 +45,14 @@ async function getMessages(u) {
 }
 
 await getMessages(props.user)
+
+watch(() => props.user, (newUser) => {
+    if(newUser && newUser.id) {
+        getMessages(newUser)
+    }
+}, {
+    immediate: true
+})
 </script>
 
 <style  scoped>
