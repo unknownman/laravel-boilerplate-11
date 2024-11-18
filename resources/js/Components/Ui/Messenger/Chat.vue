@@ -18,6 +18,7 @@
 import { useForm, usePage } from '@inertiajs/vue3';
 const page = usePage()
 const currentUSer = page.props.auth.user
+const messages = ref([])
 const props = defineProps({
     user: Object
 })
