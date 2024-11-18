@@ -34,7 +34,7 @@ class ChatMessage implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new PrivateChannel("chat.{$this->message->to}"),
+            new PrivateChannel("chat.{$this->message->to_id}"),
         ];
     }
 }
