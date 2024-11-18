@@ -1,7 +1,7 @@
 <template>
     <div>
         <ui-messenger-friends :users="users" @chat="handleChat" />
-        <ui-messenger-chat :user="selectedUser" v-if="selectedUser" />
+        <ui-messenger-chat :user="selectedUser" v-if="selectedUser" :selectedUser="selectedUser" />
     </div>
 </template>
 
