@@ -72,6 +72,17 @@ watch(() => props.user, (newUser) => {
     if(newUser && newUser.id) {
         getMessages(newUser)
     }
+    window.Echo.private(`chat.${currentUser.id}`).listen("ChatMessage", (response) => {
+        messages.value.push(response.message)
+    }).listenForWhisper("typing", (response) => {
+        isTyping.value = response.userID === props.user.id
+        if(isTypingTimer.value) {
+            clearTimeout(isTypingTimer)
+        }
+        isTypingTimer.value = setTimeout(() => {
+            isTyping.value = false
+        }, 1000)
+    })
 }, {
     immediate: true
 })
