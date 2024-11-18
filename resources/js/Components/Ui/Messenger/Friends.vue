@@ -1,12 +1,13 @@
 <template>
     <ul>
-        <li v-for="u,i in users" @click="onChatWith(u)">{{ u.name }}</li>
+        <li v-for="u,i in users" @click="onChatWith(u)" :class="{'selected': selectedUser && selectedUser.id && selectedUser.id === u.id }">{{ u.name }}</li>
     </ul>
 </template>
 
 <script setup>
 const props = defineProps({
-    users: Array
+    users: Array,
+    selectedUser: Object
 })
 const emit = defineEmits(["chat"])
 
