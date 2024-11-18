@@ -59,6 +59,12 @@ function sendMessage() {
     }
 }
 
+function sendTypingEvent() {
+    window.Echo.private(`chat.${props.user.id}`).whisper("typing", {
+        userID: currentUser.id
+    })
+}
+
 onMounted(() => {
     getMessages(props.user)
 })
