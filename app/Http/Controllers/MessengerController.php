@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ChatMessage;
 use App\Models\Chat;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -28,5 +29,17 @@ class MessengerController extends Controller
             ->with(['from', 'to'])
             ->orderBy("id", "asc")
             ->get();
+    }
+
+    public function send(User $user) {
+        $message = Chat::create([
+            'from_id' => auth()->id(),
+            'to_id' => $user->id,
+            "text" => request()->input("message")
+        ]);
+
+        broadcast(new ChatMessage($message));
+
+        return $message;
     }
 }
