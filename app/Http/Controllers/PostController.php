@@ -14,6 +14,7 @@ use App\Services\PostService;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 
 class PostController extends Controller
 {
@@ -31,10 +32,83 @@ class PostController extends Controller
         return Inertia::render("Posts/Index", compact("posts"));
     }
 
-    public function show($id, $slug = null): Response
+    public function show(Request $request, $id, $slug = null): Response
     {
-        $post = $this->postService->getPostById($id);
-        return Inertia::render("Posts/Show", compact("id", "slug", "post"));
+        $cachedPost = Redis::get("post:{$id}");
+        $userIdOrIp = auth()->check() ? auth()->id() : $request->ip();
+        $cachedKey = "post:{$id}:unique_views";
+        $isNewVisit = Redis::sadd($cachedKey, $userIdOrIp);
+        if($isNewVisit) {
+            Redis::expire($cachedKey, 86400);
+            Redis::incr("post:{$id}:views");
+            Redis::zincrby("posts_ranked_by_views", 1, $id);
+        }
+        $views = Redis::get("post:{$id}:views");
+
+        if($cachedPost) {
+            $post = json_decode($cachedPost);
+        } else {
+            $post = $this->postService->getPostById($id);
+            Redis::setex("post:{$id}", 3600, json_encode($post));
+        }
+        return Inertia::render("Posts/Show", compact("id", "slug", "post", "views"));
+    }
+
+    public function vote($id) {
+        $action = request()->input("action");
+        $userId = auth()->id();
+        $likeKey = "post:{$id}:likes";
+        $dislikeKey = "post:{$id}:dislikes";
+        if($action==="like") {
+            Redis::srem($dislikeKey, $userId);
+            Redis::sadd($likeKey, $userId);
+            Redis::zincrby("posts_ranked_by_likes", 1, $id);
+        } elseif($action ==="dislike") {
+            Redis::srem($likeKey, $userId);
+            Redis::sadd($dislikeKey, $userId);
+            Redis::zincrby("posts_ranked_by_likes", -1, $id);
+        } else {
+            return response()->json(['error' => 'invalid action']);
+        }
+        $likesCount = Redis::scard($likeKey);
+        $dislikesCount = Redis::scard($dislikeKey);
+        return response()->json([
+            'likes' => $likesCount,
+            'dislikes' => $dislikesCount
+        ]);
+    }
+
+    public function getVoteStatus($id) {
+        $userId = auth()->id();
+        if(!$userId) {
+            return response()->json(['like'=>false, 'dislike'=>false]);
+        }
+
+        $likeKey = "post:{$id}:likes";
+        $dislikeKey = "post:{$id}:dislikes";
+
+        $likeCount = Redis::scard($likeKey);
+        $dislikeCount = Redis::scard($dislikeKey);
+        $likeStatus = Redis::sismember($likeKey, $userId);
+        $dislikeStatus = Redis::sismember($dislikeKey, $userId);
+
+        return response()->json([
+            'like' => $likeStatus,
+            "dislike" => $dislikeStatus,
+            "likes"=> $likeCount,
+            "dislikes" =>$dislikeCount
+        ]);
+
+    }
+
+    public function topPosts() {
+        $topPostsByViews = Post::whereIn("id", Redis::zrevrange("posts_ranked_by_views", 0, 9))->get();
+        $topPostsByLikes = Post::whereIn("id", Redis::zrevrange("posts_ranked_by_likes", 0, 9))->get();
+
+        return response()->json([
+            'topPostsByViews' => $topPostsByViews,
+            'topPostsByLikes' => $topPostsByLikes
+        ]);
     }
 
     public function create()
@@ -97,6 +171,7 @@ class PostController extends Controller
         $post->slug = $request->slug;
         try {
             $post->save();
+            Redis::setex("post:{$post->id}", 3600, json_encode($post));
         } catch (\Exception $e) {
             return redirect()->back()->withErrors([
                 'error' => 'مشکل در ویرایش پست'
@@ -116,4 +191,5 @@ class PostController extends Controller
         $data = DatagridPostResource::collection($posts);
         return Inertia::render("Posts/Datagrid", compact("data"));
     }
+
 }

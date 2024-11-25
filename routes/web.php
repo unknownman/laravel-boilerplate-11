@@ -35,6 +35,9 @@ Route::get("/greeting", function () {
 });
 
 Route::get("/posts", [PostController::class, "index"]);
+Route::post("/post/{id}/vote", [PostController::class, "vote"])->middleware("auth");
+Route::get("/post/{id}/vote", [PostController::class, "getVoteStatus"])->middleware("auth");
+Route::get("/posts/top-posts", [PostController::class, "topPosts"]);
 Route::get("/post/{id}/{slug?}", [PostController::class, "show"]);
 Route::post("/post/{id}/comment", [CommentController::class, "store"]);
 
