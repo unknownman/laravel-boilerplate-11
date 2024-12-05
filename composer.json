@@ -8,10 +8,12 @@
         "php": "^8.2",
         "inertiajs/inertia-laravel": "^1.0",
         "intervention/image": "^3.8",
+        "kavenegar/php": "^1.2",
         "laravel-notification-channels/telegram": "^5.0",
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
+        "pusher/pusher-php-server": "^7.2",
         "tightenco/ziggy": "^2.0"
     },
     "require-dev": {

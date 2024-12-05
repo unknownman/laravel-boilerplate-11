@@ -36,6 +36,9 @@ return [
     ],
     'telegram-bot-api' => [
         'token' => env('TELEGRAM_BOT_TOKEN')
+    ],
+    'kavenegar' => [
+        'api_key'=> env("KAVENEGAR_API_KEY"),
+        'sender'=> env("KAVENEGAR_SENDER")
     ]
-
 ];

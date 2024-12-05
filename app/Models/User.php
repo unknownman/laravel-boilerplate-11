@@ -60,4 +60,8 @@ class User extends Authenticatable
         // return $this->hasManyThrough(Comment::class, Post::class);
         return $this->throughPosts()->hasComments();
     }
+
+    public function otps() {
+        return $this->hasMany(OTP::class);
+    }
 }

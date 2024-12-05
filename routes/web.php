@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthMobileLoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\MessengerController;
@@ -103,5 +104,13 @@ Route::post("/categories", [CategoryController::class, "store"])
 Route::get("/messenger", [MessengerController::class, "index"])->middleware("auth")->name("messenger.index");
 Route::get("/messenger/{user}", [MessengerController::class, "conversation"])->middleware(["auth", "api"])->name("messenger.conversation");
 Route::post("/messenger/{user}", [MessengerController::class, "send"])->middleware(["auth"])->name("messenger.send");
+
+Route::middleware("guest")->group(
+    function () {
+        Route::get("/auth/mobile", [AuthMobileLoginController::class, "view"]);
+        Route::post("/auth/mobile/otp", [AuthMobileLoginController::class, "sendOTP"]);
+        Route::post("/auth/mobile/verify", [AuthMobileLoginController::class, "verifyOtp"]);
+    }
+);
 
 require __DIR__ . '/auth.php';
