@@ -21,7 +21,7 @@ class PostCollection extends ResourceCollection
                     "title" => $post->title,
                     "description" => $post->description,
                     "publish_date" => jdate($post->created_at->timestamp)->format("Y-m-d H:i"),
-                    "author" => new UserResource($post->author)
+                    "author" => $post->user ? new UserResource($post->user) : null
                 ];
             }),
             'meta' => [

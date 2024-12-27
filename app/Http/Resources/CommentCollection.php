@@ -14,6 +14,16 @@ class CommentCollection extends ResourceCollection
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        $query = $this->collection;
+
+        return [
+            "data" => $query->get()->transform(function ($comment) {
+                return [
+                    "id" => $comment->id,
+                    "body" => $comment->body,
+                    "email" => $comment->email,
+                ];
+            }),
+        ];
     }
 }

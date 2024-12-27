@@ -33,7 +33,7 @@ class PostController extends Controller
     public function show(string $id)
     {
         //
-        $post = Post::with(['user', 'comments'])->findOrFail($id);
+        $post = Post::with(['author', 'comments'])->findOrFail($id);
         return new PostResource($post);
     }
 
