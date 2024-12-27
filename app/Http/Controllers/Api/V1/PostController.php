@@ -60,7 +60,32 @@ class PostController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Display the specified resource.
+     * 
+     * @OA\Get(
+     *     path="/api/v1/posts/{id}",
+     *     operationId="getPostById",
+     *     tags={"Posts"},
+     *     summary="Get post information",
+     *     description="Returns post data",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation",
+     *         @OA\JsonContent(ref="#/components/schemas/Post")
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Resource Not Found"
+     *     )
+     * )
      */
     public function store(Request $request)
     {
