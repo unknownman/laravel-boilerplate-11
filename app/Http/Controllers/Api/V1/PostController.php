@@ -12,7 +12,7 @@ class PostController extends Controller
 {
     /**
      * @OA\Get(
-     *     path="/posts",
+     *     path="/api/v1/posts",
      *     summary="Get all posts with pagination",
      *     tags={"Posts"},
      *     @OA\Parameter(
