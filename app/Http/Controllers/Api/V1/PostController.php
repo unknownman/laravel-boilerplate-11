@@ -59,6 +59,12 @@ class PostController extends Controller
         return new PostCollection(Post::with("user")->paginate());
     }
 
+    
+    public function store(Request $request)
+    {
+        //
+    }
+
     /**
      * Display the specified resource.
      * 
@@ -86,14 +92,6 @@ class PostController extends Controller
      *         description="Resource Not Found"
      *     )
      * )
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
      */
     public function show(string $id)
     {

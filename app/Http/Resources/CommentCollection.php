@@ -14,16 +14,15 @@ class CommentCollection extends ResourceCollection
      */
     public function toArray(Request $request): array
     {
-        $query = $this->collection;
-
         return [
-            "data" => $query->get()->transform(function ($comment) {
+            "data" => $this->collection->transform(function($coment) {
                 return [
-                    "id" => $comment->id,
-                    "body" => $comment->body,
-                    "email" => $comment->email,
+                    "id" => $coment->id,
+                    "body" => $coment->body,
+                    "email" => $coment->email,
+                    "date" => jdate($coment->created_at)->format("Y-m-d H:i")
                 ];
-            }),
+            })
         ];
     }
 }
