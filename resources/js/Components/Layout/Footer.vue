@@ -22,15 +22,24 @@
 </template>
 <style scoped>
 footer {
-  @apply bg-slate-900 text-gray-100 flex flex-col md:flex-row md:justify-between gap-8 p-8;
+  @apply bg-gradient-to-br from-indigo-700 to-indigo-900 text-white flex flex-col md:flex-row md:justify-between gap-12 p-16 rounded-tr-[100px] shadow-lg mt-12;
 }
 footer h1 {
-  @apply text-xl;
+  @apply text-3xl font-semibold;
 }
 footer .meta {
-  @apply w-full md:w-1/3;
+  @apply w-full md:w-1/3 text-gray-200;
 }
 footer nav {
   @apply w-full md:w-2/3;
+}
+footer nav ul {
+  @apply flex flex-col md:flex-row gap-6 mt-6;
+}
+footer nav li {
+  @apply text-gray-300 hover:text-teal-300 transition-all duration-300 ease-in-out;
+}
+footer nav li a {
+  @apply font-medium text-lg;
 }
 </style>

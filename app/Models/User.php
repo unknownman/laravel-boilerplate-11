@@ -44,4 +44,24 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function latestComment()
+    {
+        return $this->hasOneThrough(Comment::class, Post::class)->latest();
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function comments()
+    {
+        // return $this->hasManyThrough(Comment::class, Post::class);
+        return $this->throughPosts()->hasComments();
+    }
+
+    public function otps() {
+        return $this->hasMany(OTP::class);
+    }
 }

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import GuestLayout from '@/Layouts/GuestLayout.vue';
 import { Head, useForm } from "@inertiajs/vue3";
 defineOptions({
   layout: GuestLayout,
