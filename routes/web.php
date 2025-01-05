@@ -8,6 +8,8 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TagController;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -113,4 +115,7 @@ Route::middleware("guest")->group(
     }
 );
 
+Route::get("/users/{user}/posts/{post}", function(User $user, Post $post) {
+    return $post;
+})->scopeBindings();
 require __DIR__ . '/auth.php';
